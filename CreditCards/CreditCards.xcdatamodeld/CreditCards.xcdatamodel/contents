@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cards" representedClassName="Cards" syncable="YES" codeGenerationType="class">
+        <attribute name="bankName" optional="YES" attributeType="String"/>
+        <attribute name="credit" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expireDate" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="relationshipToPurchases" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Purchases" inverseName="origen" inverseEntity="Purchases"/>
+    </entity>
+    <entity name="Purchases" representedClassName="Purchases" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="idCard" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="origen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cards" inverseName="relationshipToPurchases" inverseEntity="Cards"/>
+    </entity>
+</model>
